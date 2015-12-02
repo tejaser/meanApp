@@ -218,9 +218,9 @@ module.exports = function (grunt) {
     copy: {
       localConfig: {
         src: 'config/env/local.example.js',
-        dest: 'config/env/local.js',
+        dest: 'config/env/local-development.js',
         filter: function () {
-          return !fs.existsSync('config/env/local.js');
+          return !fs.existsSync('config/env/local-development.js');
         }
       }
     }
@@ -240,6 +240,7 @@ module.exports = function (grunt) {
   // Load NPM tasks
   require('load-grunt-tasks')(grunt);
   grunt.loadNpmTasks('grunt-protractor-coverage');
+  grunt.loadNpmTasks('grunt-contrib-sass');
 
   // Make sure upload directory exists
   grunt.task.registerTask('mkdir:upload', 'Task that makes sure upload directory exists.', function () {
